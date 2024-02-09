@@ -16,30 +16,33 @@ def num_divisors(num):
     factors = factorization(num)
     candidates = []
     divisors = []
-    count = 0
+    count = 2
     for i in range(1, len(factors)):
         candidates = combinations(factors, i)
-        candidates = list(candidates)
+        #candidates = list(candidates)
         divisors = [tuple(div) for div in candidates]
         divisors = set(divisors)
         #print(divisors)
         for divisor in divisors:
             count += 1
-    return count + 2
+    return count
     
-def triangle_generator(index):
+"""def triangle_generator(index):
     return sum(i for i in range(index))
+"""
 
-x = 0
-count = 0
+x = 500
+count = 2
+triangle = 1
 while True:
-    if x == num_divisors(triangle_generator(x)):
+    triangle += count
+    print(triangle)
+    #triangle = triangle_generator(count)
+    if triangle < 50000000:
+        count += 1
+    elif x < num_divisors(triangle):
+        print(triangle)
         break
     else:
         count += 1
-        print(count)
-    x += 1
-print(x)
-#print(triangle_generator(11))
 
-#print(num_divisors(100))
