@@ -1,3 +1,5 @@
+#palindrome
+
 def is_palindrome(number):
     digits = [int(digit) for digit in str(number)]
     
